@@ -1,41 +1,32 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Função para extrair a URL base removendo parâmetros, exceto para paginação
     function getCanonicalURL() {
-        let currentURL = window.location.href;
+        const currentURL = new URL(window.location.href);
+        const params = currentURL.searchParams;
 
-        // Verifica se há parâmetros na URL
-        if (currentURL.includes('?')) {
-            // Obtém os parâmetros da URL
-            let params = new URLSearchParams(window.location.search);
+        if (params.has('p')) {
+            const pageNumber = params.get('p');
 
-            // Verifica se o parâmetro "p" existe e se o valor é "1"
-            if (params.has('p') && params.get('p') === '1') {
-                // Remove apenas o parâmetro "p" se existir
+            if (pageNumber === '1') {
                 params.delete('p');
+                currentURL.search = params.toString();
+                return currentURL.origin + currentURL.pathname;
+            } else {
+                return currentURL.toString();
             }
-
-            // Se não houver o parâmetro 'p', mas houver outros parâmetros, remova todos
-            if (!params.has('p') && params.toString() !== '') {
-                currentURL = currentURL.split('?')[0];
-            }
+        } else {
+            return currentURL.toString();
         }
-
-        return currentURL;
     }
 
-    // Cria o elemento <link rel="canonical"> e adiciona ao <head>
     function addCanonicalLink() {
-        let canonicalURL = getCanonicalURL();
-
-        let linkElement = document.createElement('link');
+        const canonicalURL = getCanonicalURL();
+        const linkElement = document.createElement('link');
         linkElement.rel = 'canonical';
         linkElement.href = canonicalURL;
 
         document.head.appendChild(linkElement);
-
         console.log('Canonical URL set to:', canonicalURL);
     }
 
-    // Chamada da função ao carregar a página
     addCanonicalLink();
 });
