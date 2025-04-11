@@ -9,7 +9,6 @@ Este script tem como objetivo inserir a tag `<link rel="canonical">` no `<head>`
     * **Exemplo:** `https://www.seusite.com.br/produtos?p=1` terá como canonical `https://www.seusite.com.br/produtos`.
 * **Canonicalização para Páginas de Paginação Subsequentes:** Se o parâmetro de paginação `p` existir e seu valor for maior que `1` (ex: `?p=2`), o script mantém o parâmetro na URL canonical.
     * **Exemplo:** `https://www.seusite.com.br/produtos?p=2` terá como canonical `https://www.seusite.com.br/produtos?p=2`.
-* **Canonicalização para URLs sem Paginação:** Se não houver o parâmetro `p` na URL, o script simplesmente define a URL atual como a canonical.
 * **Execução Segura:** O script aguarda o carregamento completo do DOM (`DOMContentLoaded`) antes de executar, garantindo que o elemento `<head>` esteja disponível.
 * **Log no Console:** O script inclui um `console.log` para informar qual URL canonical foi definida, facilitando a depuração.
 
