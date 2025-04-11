@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    function getCanonicalURL() {
-        const currentURL = new URL(window.location.href);
-        const params = currentURL.searchParams;
+    const currentURL = new URL(window.location.href);
+    const params = currentURL.searchParams;
 
+    function getCanonicalURL() {
         if (params.has('p')) {
             const pageNumber = params.get('p');
 
@@ -13,8 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 return currentURL.toString();
             }
-        } else {
-            return currentURL.toString();
         }
     }
 
@@ -27,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.head.appendChild(linkElement);
         console.log('Canonical URL set to:', canonicalURL);
     }
-
+    if(params.has('p')) {
     addCanonicalLink();
+    }
+
 });
