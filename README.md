@@ -50,7 +50,3 @@ Este script tem como objetivo inserir a tag `<link rel="canonical">` no `<head>`
 ## Contribuição
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues para relatar bugs ou sugerir melhorias, ou enviar pull requests com suas alterações.
-
-## Licença
-
-[Adicione aqui sua licença (por exemplo, MIT License)](https://choosealicense.com/)
