@@ -1,6 +1,6 @@
-# Script JavaScript para Canonicalização Inteligente com Suporte a Paginação
+# Ajuste para o Canonical de paginações
 
-Este script JavaScript tem como objetivo inserir a tag `<link rel="canonical">` no `<head>` do seu documento HTML de forma inteligente, especialmente para lidar com URLs de paginação.
+Este script tem como objetivo inserir a tag `<link rel="canonical">` no `<head>` do seu documento HTML de forma inteligente, especialmente para lidar com URLs de paginação.
 
 ## Funcionalidades
 
